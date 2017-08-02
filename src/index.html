@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_head.html", grunt.data.json) %>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+    <responsive-child>
+      <main class="interactive">
+        <div class="inputs">
+          <div class="row">
+            <label class="helper">What was the adjusted gross income on your tax return?</label>
+            <select class="own-income" id="own-income">
+              <option value="">Select your income</option>
+              <% csv.income.forEach(function(row) { %>
+              <option value="<%= row.income %>"><%= row.label %></option>
+              <% }); %>
+            </select>
+          </div>
+          <div class="row">
+            <label class="helper">Do you file a single or joint return?</label>
+            <input type="radio" name="mode" id="single">
+            <label for="single">Single</label>
+            <input type="radio" name="mode" id="joint">
+            <label for="joint">Joint</label>
+          </div>
+        </div>
+        <div class="graph"></div>
+        <div class="report"></div>
+      </main>
+    </responsive-child>
+
+    <script>
+window.incomeData = <%= JSON.stringify(csv.income) %>;
+    </script>
+
+    <script src="app.js" async></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_analytics.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
+  </body>
+</html>
