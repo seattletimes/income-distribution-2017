@@ -5,6 +5,9 @@
 }
 
 .inputs {
+  background: @df-off-white;
+  padding: 0 16px;
+
   .row {
     .display-flex();
     .align-items(center);
@@ -22,6 +25,7 @@
 
   label.helper {
     padding-right: 20px;
+    font-size: 15px;
   }
 
   input[type="radio"] {
@@ -50,7 +54,7 @@
 .graph {
   .display-flex();
   .align-items(flex-end);
-  padding: 16px 0;
+  padding: 32px 0 16px;
 
   &.activated {
     height: 300px;
@@ -79,4 +83,16 @@
       }
     }
   }
+}
+
+.source {
+  margin-top: 16px;
+  font-size: 15px;
+}
+
+.credit {
+  text-transform: uppercase;
+  text-align: right;
+  font-size: 15px;
+  margin-top: 8px;
 }
