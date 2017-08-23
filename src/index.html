@@ -14,7 +14,7 @@
           See where you fall on the distribution for incomes in the city of Seattle. Select your income range (use adjusted gross income) and whether you file a single or joint tax return.
 
         <div class="inputs">
-          <div class="row">
+          <form class="row" autocomplete="off">
             <label class="helper">What was the adjusted gross income on your tax return?</label>
             <select class="own-income" id="own-income">
               <option value="">Select your income</option>
@@ -22,12 +22,12 @@
               <option value="<%= row.income %>"><%= row.label %></option>
               <% }); %>
             </select>
-          </div>
+          </form>
           <div class="row">
             <label class="helper">Do you file a single or joint return?</label>
-            <input type="radio" name="mode" id="single">
+            <input type="radio" name="mode" id="single" autocomplete="off">
             <label for="single">Single</label>
-            <input type="radio" name="mode" id="joint">
+            <input type="radio" name="mode" id="joint" autocomplete="off">
             <label for="joint">Joint</label>
           </div>
         </div>
